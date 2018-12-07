@@ -1,0 +1,268 @@
+@media (max-width: 960px){}
+@media (max-width: 768px){}
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow-x:hidden;
+  overflow-y:scroll;
+}
+
+.wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 70px minmax(700px, auto) 50px;  /* header (menu, content) footer 3가지 영역 크기 */
+}
+
+.header{
+  grid-column: span 12;
+}
+.footer{
+  grid-column: span 12;
+}
+.menu {
+  grid-column: span 1;
+}
+.content {
+  grid-column: span 11;
+  grid-template-rows: minmax(700px, auto);
+}
+
+@media (max-width: 768px)   /* 모바일 화면 */
+{
+  .wrapper {
+    grid-template-rows: 70px auto minmax(1000px, auto) 50px;  /* header menu, content, footer 4가지 영역 */
+  }
+  .menu {
+    grid-column: span 12;
+  }
+  .content {
+    grid-column: span 12;
+    grid-template-rows: minmax(600px, auto);
+  }
+}
+
+/*----- border -------------------*/
+.header, .footer {}
+.content { border: 1px solid #e7e7e7; }
+.menu {
+  border-top: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
+}
+@media (max-width: 768px)     /*모바일 화면 */
+{
+  .header a{
+    text-align: center;
+  }
+  .content {
+    border: none;
+    border-bottom: 1px solid #e7e7e7;
+  }
+}
+
+/* header css */
+.header a {
+  display: block;
+  padding: 15px 15px;
+  font-size: 25px;
+  color: #928e8e;
+}
+.header a:visited, a:link, a:active{
+  color: #928e8e;
+}
+
+/*------------- menu Css -------------*/
+.menu {
+  width: 100%;
+}
+.menu a {
+  display: block;
+  box-sizing: border-box;
+  color: #337ab7;
+  font-size: 18px;
+  width: 200px;
+  padding: 15px;
+  margin: 0;
+}
+.menu-divider {
+  border-bottom: 1px solid #e7e7e7;
+}
+.menu a:hover, a:visited, a:link, a:active{
+  color: #337ab7;
+}
+@media (max-width: 768px)     /*모바일 화면 */
+{
+  .menu a {
+    display: inline-block;
+    float: left;
+    font-size: 14px;
+    text-align: center;
+    width: 20%;
+    padding: 12px 0;
+  }
+  .menu i {
+    display: none;
+  }
+  .menu-divider {
+    margin: 0;
+    border-bottom:none;
+    border-right: 1px solid #e7e7e7;
+  }
+}
+
+
+/* --------------위까지 기본 Layout ----------------*/
+
+/*------------- CONTROL NavBar -------------*/
+.content {
+  width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  background-color: #f2f4f7;
+}
+.control-nav {
+  padding-left: 30px;
+  height: auto;
+  background: white;
+  border-bottom: 1px solid #e7e7e7;
+}
+.control-inner {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.control-inner a {
+  width: 120px;
+  padding: 18px 0;
+  margin: 10px 20px;
+  font-size: 24px;
+  color: white;
+  text-align:center;
+}
+.control-inner a:hover, a:visited, a:link, a:active{
+  text-decoration: none;
+}
+
+.control-inner-primary {
+  background-color: #337ab7;
+  border: 1px solid #2e6da4;
+  border-radius: 5px;
+  font-weight: 400;
+}
+@media (max-width: 960px)
+{
+  .control-nav {
+    padding: 0 10px;
+  }
+  .control-inner {
+    width: 560px;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+  }
+  .control-inner a {
+    margin: 10px;
+  }
+}
+@media (max-width: 768px)     /*모바일 화면 */
+{
+  .content {
+    padding: 0;
+  }
+  .control-nav{
+    display: none;
+    position : fixed;
+    padding: 0px;
+    margin: 0;
+    width: 100%;
+    height: auto;
+    background-color: rgba(136,125,126,0.9);
+    z-index: 1002;
+  }
+  .control-inner {
+    width: 70%;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+  }
+  .control-inner a {
+    padding: 15px 0;
+    width: 90px;
+    font-size: 20px;
+  }
+  .mobile-nav{
+    display:block;
+    position: fixed;
+    background-color: #337ab7;
+    top: 125px;
+    left: 5px;
+    width: 30px;
+    height: 30px;
+    z-index: 1003;
+  }
+}
+
+/*------------- Control NavBar -------------*/
+
+
+
+/*------------- Control Content -------------*/
+.control-content{
+  padding: 10px 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1001;
+}
+.content-inner {
+  margin-top: 10px;
+  padding: 5px 50px;
+  height: auto;
+  background-color: white;
+  border: 1px solid rgb(235, 238, 243);
+}
+.content-cctv h2, h3 {
+  margin: 10px 0px;
+}
+.cctv {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 46%;
+  height: 300px;
+  margin: 0 20px 20px 0;
+  border: 1px solid black;
+}
+.sensor-table{
+  border: 1px solid #777;
+}
+.sensor-table th, td {
+  width: 5%;
+  padding: 5px 0;
+  font-size: 18px;
+  text-align: center;
+  border: 1px solid black;
+}
+@media (max-width: 960px)
+{
+  .content-inner {
+      padding: 5px 30px;
+  }
+  .cctv {                     /*cctv가 한줄로 디는 순간 */
+    width: 100%;
+  }
+}
+@media (max-width: 768px)     /*모바일 화면 */
+{
+  .control-content{
+    padding: 0;
+  }
+  .content-inner {
+    padding: 5px 15px 5px 40px;
+  }
+  .cctv {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+  }
+}

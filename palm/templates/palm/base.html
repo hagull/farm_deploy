@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+{% block content %}
+  <!--Load the AJAX API-->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+
+    // Load the Visualization API and the corechart package.
+    google.charts.load('current', {'packages':['corechart']});
+
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.charts.setOnLoadCallback(drawChart);
+
+    // Callback that creates and populates a data table,
+    // instantiates the pie chart, passes in the data and
+    // draws it.
+    function drawChart() {
+
+      // Create the data table.
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Topping');
+      data.addColumn('number', 'Slices');
+      data.addRows([
+        ['Mushrooms', 5],
+        ['Onions', 1],
+        ['Olives', 1],
+        ['Zucchini', 1],
+        ['Pepperoni', 2],
+        ['Mushrooms', 1]
+      ]);
+      // Set chart options
+      var options = {'title':'How Much Pizza I Ate Last Night',
+                     'width':500,
+                     'height':300};
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }
+  </script>
+
+  <!--
+  <<<<<<< HEAD
+  -->
+
+      <OBJECT classid="clsid:9BE31822-FDAD-461B-AD51-BE1D1C159921"
+      codebase="http://download.videolan.org/pub/videolan/vlc/2.2.4/win32/vlc-2.2.4-win32.exe"
+      width="500px" height="500px" id="vlc" events="True">
+          <embed type="application/x-vlc-plugin" pluginspage="http://www.videolan.org" name="vlc" />
+          <param name="Src" value="rtsp://admin:Farmpalm!@192.168.0.47:554/Streaming/Channels/101" />
+          <param name="autostart" value="true" />
+          <param name="ShowDisplay" value="false" />
+          <param name="AutoLoop" value="false" />
+          <param name="AutoPlay" value="true" />
+      </OBJECT>
+
+  <!--
+  =======
+  >>>>>>> 2537851... rtsp  크롬 확장프로그램 이용 cctv화면 송출
+  -->
+
+
+  <!--Div that will hold the pie chart-->
+  <div id="chart_div"></div>
+
+{% endblock %}
